@@ -1,0 +1,112 @@
+html, body {  /* Select and size the outermost elements so other elements can be set in % */
+	height:100%;
+	width:99%;
+}
+
+body {
+   font: 24px Helvetica;
+   background-color: #8888bb;
+  }
+
+  #main {  /* select element with id="main" */ 
+   min-height: 72%;
+   max-height: 70%;
+   margin: 0px;
+   padding: 0px;
+   display:  flex;
+   flex-flow: row;
+   }
+ 
+  #main > article { /* select articles (if they are inside the element with id="main") */ 
+   margin: 4px;
+   padding: 5px;
+   border: 1px solid #583759;
+   border-radius: 7pt;
+   background: #583759;
+   flex: 3 1 50%;
+   order: 2;
+   overflow: scroll;
+   }
+
+  #main > #centerDiv {
+   margin: 4px;
+   padding: 5px;
+   border: 5px solid #000;
+   border-radius: 7pt;
+   background: #B5509C;
+   flex: 3 1 50%;
+   order: 2;
+   overflow: scroll;
+   text-align: center;
+   font-family: Average;
+   font-style: italic;
+   }
+
+  #main > nav {
+   margin: 4px;
+   padding: 5px;
+   border: 5px solid #000;
+   border-radius: 7pt;
+   text-align: center;
+   font-style: Bold;
+   font-family: average;
+   background: #B5509C;
+           flex: 1 6 15%;
+           order: 1;
+   }
+  
+  #main > aside {
+   margin: 4px;
+   padding: 5px;
+   border: 5px solid #000;
+   border-radius: 7pt;
+   background: #B5509C;
+   text-align: center;
+           flex: 1 6 15%;
+           order: 3;
+
+   }
+ 
+  header, footer {  /* select all header and footer elements */
+   display: block;
+   margin: 4px;
+   padding: 5px;
+   min-height: 10%;
+   border: 5px solid #000;
+   border-radius: 7pt;
+   background: #FFADB9;
+   text-align: center;
+   font-family: snake venom;
+   font-size: 55pt;
+   }
+
+  footer {    /* override these attributes just for the footer elements */
+   font-size: 15pt;
+   text-align: center;
+   font-style: italic; 
+   font-family: snake venom;
+   }
+
+
+ 
+  /* Changes layout under these conditions : Too narrow to support three columns */
+  /* "at-rules" using the '@' sign is an "advanced" feature */ 
+  @media all and (max-width: 640px) {
+  
+   #main, #page {
+    flex-flow: column;
+    flex-direction: column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+            order: 0;
+   }
+  
+   #main > nav, #main > aside, header, footer {
+    min-height: 50px;
+    max-height: 50px;
+   }
+  
+};
+
